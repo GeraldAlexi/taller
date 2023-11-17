@@ -18,16 +18,17 @@
         $user = $results['username'];
         $_SESSION['pp']=$user;
         header("Location: ../tabla.php");
-        exit()
+        exit();
       } 
       else{
         header("Location: ../index.php?error=El correo o la Contraseña son incorrectas");
-        exit()
+        exit();
       }
     }
     else{
 
       header("Location: ../index.php?error=Ingrese un valor");
+      exit();
     }
     
     mysqli_close($conn);
