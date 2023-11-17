@@ -22,12 +22,12 @@ $h=$_SESSION['ll'];
                             if($h=='editor') {
                                 ?>
                                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="tabla.php">Productos</a></li>
-                                <li class="nav-item"><a class="nav-link" href="formulario.php">Agregar</a></li>
+                                <li class="nav-item"><a class="nav-link" href="formulario.php">Gestion</a></li>
                             <?php
                             }if($h=='administrador') {
                             ?>
                                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="tabla.php">Productos</a></li>
-                                <li class="nav-item"><a class="nav-link" href="formulario.php">Agregar</a></li>
+                                <li class="nav-item"><a class="nav-link" href="formulario.php">Gestion</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                             <?php
                             }if($h=='vis'){
