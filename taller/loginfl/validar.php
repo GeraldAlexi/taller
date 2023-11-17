@@ -9,14 +9,16 @@
     $pass=$_POST['password'];
 
     if (!empty($email) && !empty($pass)) {
-      $records = $conn->prepare('SELECT username, email, password FROM users WHERE email =:email');
+      $records = $conn->prepare('SELECT username, email,perfil, password FROM users WHERE email =:email');
       $records->bindParam(':email', $email);
       $records->execute();
       $results = $records->fetch(PDO::FETCH_ASSOC);
 
       if ($results > 0 ){
+        $perf = $results['perfil'];
         $user = $results['username'];
         $_SESSION['pp']=$user;
+        $_SESSION['ll']=$perf;
         header("Location: ../tabla.php");
         exit();
       } 
