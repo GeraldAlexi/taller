@@ -1,42 +1,36 @@
 <?php
-  require 'database.php';
-  session_start();
 
-  $email=$_POST['email'];
-  $pass=$_POST['password'];
+  if (!empty($_POST['bt_ingresar'])) {
+    
+    require 'database.php';
+    session_start();
 
-    // if (isset($_SESSION['user_id'])) {
-    // }
+    $email=$_POST['email'];
+    $pass=$_POST['password'];
 
+    if (!empty($email) && !empty($pass)) {
+      $records = $conn->prepare('SELECT username, email, password FROM users WHERE email =:email');
+      $records->bindParam(':email', $email);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
 
-  if (!empty($email) && !empty($pass)) {
-    $records = $conn->prepare('SELECT username, email, password FROM users WHERE email =:email');
-    $records->bindParam(':email', $email);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
-
-    $message = '';
-
-    if ($results > 0 ){
-      $user = $results['username'];
-      header("Location: ../tabla.php");
-
-    } 
-    elseif($results == 0) {
-      echo
-      '<script> 
-      alert("no cincide");
-      </script>;
-    ';
-    header("Location: ../index  .php");
-      $message = 'Sus datos no coinciden'; 
+      if ($results > 0 ){
+        $user = $results['username'];
+        $_SESSION['pp']=$user;
+        header("Location: ../tabla.php");
+        exit()
+      } 
+      else{
+        header("Location: ../index.php?error=El correo o la Contraseña son incorrectas");
+        exit()
+      }
     }
-  }
-  elseif (empty($email) || empty($pass)) {
+    else{
 
-    header("Location: ../index.php");
-  }
-  $_SESSION['pp']=$user;
-  mysqli_close($conn);
+      header("Location: ../index.php?error=Ingrese un valor");
+    }
+    
+    mysqli_close($conn);
+}
 ?>
 
