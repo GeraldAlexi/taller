@@ -10858,3 +10858,12 @@ textarea.form-control-lg {
   text-align: center;
   padding-bottom: 80px;
 }
+.parrafo_er{
+
+  text-align: center;
+}
+.formulario{
+  margin: 0 38%;
+  border-radius:  1% var(--bs-black) ;
+  
+}
