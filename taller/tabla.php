@@ -3,8 +3,9 @@
 require 'template/header.php';
 require 'template/nav.php';
 
-session_start();
+
 $h=$_SESSION['pp'];
+$q=$_SESSION['ll'];
 ?>
 
 
@@ -20,6 +21,7 @@ $h=$_SESSION['pp'];
     <h1>bienvenido</h1>
     <br> Bienvenido 
     <?php echo"$h";?>
+    <?php echo"$q";?>
 
 </body>
 </html>
