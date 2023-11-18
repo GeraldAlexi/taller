@@ -1,6 +1,12 @@
 <?php
 session_start();
+error_reporting(0);
 $h=$_SESSION['ll'];
+if ($h==''||$h==null) {
+    header("Location: index.php");
+    die();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -23,16 +29,19 @@ $h=$_SESSION['ll'];
                                 ?>
                                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="tabla.php">Productos</a></li>
                                 <li class="nav-item"><a class="nav-link" href="formulario.php">Gestion</a></li>
+                                <li class="nav-item"><a class="nav-link btn btn-primary" a href="loginfl/logout.php">Cerrar Sesión</a></li>
                             <?php
-                            }if($h=='administrador') {
+                            }elseif($h=='administrador') {
                             ?>
                                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="tabla.php">Productos</a></li>
                                 <li class="nav-item"><a class="nav-link" href="formulario.php">Gestion</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                                <li class="nav-item"><a class="nav-link btn btn-primary" a href="loginfl/logout.php">Cerrar Sesión</a></li>
                             <?php
-                            }if($h=='vis'){
+                            }elseif($h=='vis'){
                             ?>
                                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="tabla.php">Productos</a></li>
+                                <li class="nav-item"><a class="nav-link btn btn-primary" a href="loginfl/logout.php">Cerrar Sesión</a></li>
                             <?php
                             }
                             ?>
