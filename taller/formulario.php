@@ -1,6 +1,6 @@
 
 <?php 
-    
+    require 'loginfl/denegacion.php';
     require 'template/header.php';
     require 'template/nav.php';
 ?>
